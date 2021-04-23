@@ -4,17 +4,20 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./container/app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { HomePageComponent } from "./home-page/home-page.component";
-import { LoginPageComponent } from "./login-page/container/login-page.component";
-import { LoginPageRoutingModule } from "./login-page/login-page-routing.module";
+import { CustomMaterialModule } from "./shared/modules/custom-material.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-	declarations: [AppComponent, HomePageComponent, LoginPageComponent],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		LoginPageRoutingModule,
+		CustomMaterialModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

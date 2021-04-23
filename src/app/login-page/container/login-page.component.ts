@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+	selector: "app-login-page",
+	templateUrl: "./login-page.component.html",
+	styleUrls: ["./login-page.component.scss"],
 })
 export class LoginPageComponent implements OnInit {
+	hide = true;
+	email = new FormControl("", [Validators.required, Validators.email]);
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {}
 
+	getErrorMessage() {
+		if (this.email.hasError("required")) {
+			return "You must enter a value";
+		}
+
+		return this.email.hasError("email") ? "Not a valid email" : "";
+	}
 }

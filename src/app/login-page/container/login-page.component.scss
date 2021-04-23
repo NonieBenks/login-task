@@ -1,0 +1,16 @@
+.login {
+	h2 {
+		text-align: center;
+	}
+	.login-form {
+		display: flex;
+		flex-direction: column;
+		max-width: 350px;
+		min-height: 250px;
+		margin: auto;
+		justify-content: space-around;
+		.login-btn {
+			font-size: 18px;
+		}
+	}
+}
