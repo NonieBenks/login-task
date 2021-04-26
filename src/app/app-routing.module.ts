@@ -4,31 +4,15 @@ import { Routes, RouterModule } from "@angular/router";
 const routes: Routes = [
 	{
 		path: "",
-		redirectTo: "login",
-		pathMatch: "full",
-	},
-	{
-		path: "login",
 		loadChildren: () =>
-			import("./login-page/login-page.module").then(
-				(m) => m.LoginPageModule
-			),
-	},
-	{
-		path: "home",
-		loadChildren: () =>
-			import("./home-page/home-page.module").then(
-				(m) => m.HomePageModule
-			),
-	},
-	{
-		path: "**",
-		redirectTo: "home",
+			import("./base/base.module").then((m) => m.BaseModule),
 	},
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [
+		RouterModule.forRoot(routes, { relativeLinkResolution: "corrected" }),
+	],
 	exports: [RouterModule],
 })
 export class AppRoutingModule {}

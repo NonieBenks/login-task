@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import { FormControl, Validators, FormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AccountService } from "src/app/shared/services/account.service";
 
 @Component({
 	selector: "app-login-page",
@@ -9,17 +10,26 @@ import { Router } from "@angular/router";
 })
 export class LoginPageComponent implements OnInit {
 	hide = true;
-	email = new FormControl("", [Validators.required, Validators.email]);
-
-	constructor() {}
+	login = new FormControl("", [Validators.required, Validators.minLength(3)]);
+	passcode = new FormControl("", [
+		Validators.required,
+		Validators.minLength(4),
+	]);
+	constructor(
+		public accountService: AccountService,
+		private router: Router
+	) {}
 
 	ngOnInit(): void {}
 
-	getErrorMessage() {
-		if (this.email.hasError("required")) {
-			return "You must enter a value";
+	getErrorLogin() {
+		if (this.login.hasError("required")) {
+			return "You must enter a login";
 		}
-
-		return this.email.hasError("email") ? "Not a valid email" : "";
+	}
+	getErrorPasscode() {
+		if (this.passcode.hasError("required")) {
+			return "You must enter a password";
+		}
 	}
 }

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CustomMaterialModule } from "./shared/modules/custom-material.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { BaseRoutingModule } from "./base/base-routing.module";
 
 @NgModule({
 	declarations: [AppComponent],
