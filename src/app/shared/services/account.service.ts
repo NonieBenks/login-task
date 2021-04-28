@@ -1,20 +1,21 @@
-import { Injectable, Input } from "@angular/core";
+import { Injectable } from "@angular/core";
 
 @Injectable({
 	providedIn: "root",
 })
 export class AccountService {
+	public loggedIn: Boolean = false;
+	public wrongValueError: string = "";
+
 	constructor() {}
-	@Input() result: Boolean = false;
-	public wrongValue: string = "";
-	login(username, password) {
-		if (username.value === "test" && password.value === "test") {
-			this.result = true;
-			this.wrongValue = "";
+
+	public login(username: string, password: string) {
+		if (username === "test" && password === "test") {
+			this.loggedIn = true;
+			this.wrongValueError = "";
 			return true;
 		}
-		this.wrongValue = "Wrong login or password";
-		this.result = false;
-		return false;
+		this.loggedIn = false;
+		this.wrongValueError = "Wrong login or password";
 	}
 }

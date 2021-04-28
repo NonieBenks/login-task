@@ -1,23 +1,21 @@
 <div class="login">
-	<h1 class="login-title">Enter top-secret credentials:</h1>
+	<h1 class="login-title">{{ "TEST.ENTER_SECRET" | translate }}</h1>
 	<mat-card class="login-form">
 		<mat-form-field appearance="fill">
-			<mat-label>Enter your login</mat-label>
+			<mat-label>{{ "TEST.ENTER_LOGIN" | translate }}</mat-label>
 			<input
 				matInput
 				placeholder="pat@example.com"
-				#username
 				[formControl]="login"
 			/>
 			<mat-error *ngIf="login.invalid">{{ getErrorLogin() }}</mat-error>
 		</mat-form-field>
 		<mat-form-field appearance="fill">
-			<mat-label>Enter your password</mat-label>
+			<mat-label>{{ "TEST.ENTER_PASSWORD" | translate }}</mat-label>
 			<input
 				matInput
-				#password
 				[type]="hide ? 'password' : 'text'"
-				[formControl]="passcode"
+				[formControl]="password"
 			/>
 			<button
 				mat-icon-button
@@ -30,19 +28,21 @@
 					hide ? "visibility_off" : "visibility"
 				}}</mat-icon>
 			</button>
-			<mat-error *ngIf="passcode.invalid">{{
-				getErrorPasscode()
+			<mat-error *ngIf="password.invalid">{{
+				getErrorPassword()
 			}}</mat-error>
 		</mat-form-field>
-		<mat-label>{{ accountService.wrongValue }}</mat-label>
+		<mat-label class="wrong-value">{{
+			accountService.wrongValueError
+		}}</mat-label>
 		<button
 			mat-flat-button
 			color="primary"
 			class="login-btn"
-			(click)="accountService.login(username, password)"
+			(click)="accountService.login(login.value, password.value)"
 			routerLink="/home"
 		>
-			Login
+			{{ "TEST.LOGIN" | translate }}
 		</button>
 	</mat-card>
 </div>

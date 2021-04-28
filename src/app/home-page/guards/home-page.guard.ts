@@ -18,7 +18,7 @@ export class HomePageGuard implements CanActivate {
 		route: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot
 	): Observable<boolean> | boolean {
-		if (this.accountService.result) {
+		if (this.accountService.loggedIn) {
 			return true;
 		}
 		return false;

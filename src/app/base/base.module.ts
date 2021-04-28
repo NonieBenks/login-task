@@ -5,6 +5,7 @@ import { BaseComponent } from "./container/base.component";
 import { BaseRoutingModule } from "./base-routing.module";
 import { CustomMaterialModule } from "../shared/modules/custom-material.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
 	declarations: [ToolbarComponent, BaseComponent],
@@ -13,6 +14,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 		BaseRoutingModule,
 		ReactiveFormsModule,
 		CustomMaterialModule,
+		TranslateModule,
 	],
 })
 export class BaseModule {}

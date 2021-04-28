@@ -1,25 +1,41 @@
 <mat-toolbar color="primary">
 	<button
+		*ngIf="accountService.loggedIn"
 		mat-icon-button
-		class="example-icon"
+		class="home-icon"
 		aria-label="Example icon-button with menu icon"
+		routerLink="/home"
 	>
-		<mat-icon>menu</mat-icon>
+		<span>{{ "TEST.PORTFOLIO" | translate }}</span>
+		<span class="example-spacer"></span>
 	</button>
-	<span>Portfolio</span>
-	<span class="example-spacer"></span>
 	<button
+		*ngIf="accountService.loggedIn"
 		mat-icon-button
-		class="example-icon favorite-icon"
+		aria-label="Example icon-button with menu icon"
+		routerLink="/login"
+	>
+		<mat-icon>home</mat-icon>
+	</button>
+
+	<button
+		*ngIf="accountService.loggedIn"
+		mat-icon-button
+		(click)="logout()"
 		aria-label="Example icon-button with heart icon"
 	>
-		<mat-icon>favorite</mat-icon>
+		<mat-icon>logout</mat-icon>
 	</button>
-	<button
-		mat-icon-button
-		class="example-icon"
-		aria-label="Example icon-button with share icon"
-	>
-		<mat-icon>share</mat-icon>
+	<button [matMenuTriggerFor]="menu" mat-icon-button>
+		<mat-icon>language</mat-icon>
 	</button>
+	<mat-menu #menu="matMenu" color="accent">
+		<button
+			*ngFor="let languageItem of languages"
+			mat-menu-item
+			(click)="useLanguage(languageItem.code)"
+		>
+			{{ languageItem.title | translate }}
+		</button>
+	</mat-menu>
 </mat-toolbar>

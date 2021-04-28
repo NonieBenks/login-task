@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginPageComponent } from "./container/login-page.component";
+import { HomePageGuard } from "../home-page/guards/home-page.guard";
 
 const routes: Routes = [
 	{
@@ -13,6 +14,7 @@ const routes: Routes = [
 					import("../home-page/home-page.module").then(
 						(m) => m.HomePageModule
 					),
+				canActivate: [HomePageGuard],
 			},
 		],
 	},
