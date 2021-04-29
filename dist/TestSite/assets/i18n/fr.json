@@ -1,9 +1,0 @@
-{
-	"TEST": {
-		"LOGIN": "Connexion",
-		"ENTER_SECRET": "Entrer les informations d'identification:",
-		"ENTER_LOGIN": "Tapez votre identifiant",
-		"ENTER_PASSWORD": "Tapez votre mot de passe",
-		"PORTFOLIO": "Portefeuille"
-	}
-}
