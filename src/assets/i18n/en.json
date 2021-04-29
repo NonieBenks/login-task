@@ -1,0 +1,9 @@
+{
+	"TEST": {
+		"LOGIN": "Login",
+		"ENTER_SECRET": "Enter top-secret credentials:",
+		"ENTER_LOGIN": "Enter your login",
+		"ENTER_PASSWORD": "Enter your password",
+		"PORTFOLIO": "Portfolio"
+	}
+}

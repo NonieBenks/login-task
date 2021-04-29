@@ -1,0 +1,10 @@
+.cv-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.portfolio {
+		max-width: 90vw;
+		margin-top: 10vh;
+	}
+}

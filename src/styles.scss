@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+	background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+}
+.lang-menu {
+	background-color: #fcddf2;
+}
+.lang-btn {
+	color: #242038;
+}
+.mat-form-field {
+	caret-color: black;
+}
