@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
 	<button
 		*ngIf="accountService.loggedIn"
 		mat-icon-button
@@ -29,10 +29,11 @@
 	<button [matMenuTriggerFor]="menu" mat-icon-button>
 		<mat-icon>language</mat-icon>
 	</button>
-	<mat-menu #menu="matMenu" color="accent">
+	<mat-menu #menu="matMenu" class="lang-menu">
 		<button
 			*ngFor="let languageItem of languages"
 			mat-menu-item
+			class="lang-btn"
 			(click)="useLanguage(languageItem.code)"
 		>
 			{{ languageItem.title | translate }}

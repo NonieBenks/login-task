@@ -7,10 +7,14 @@ body {
 body {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
-	background: rgb(63, 94, 251);
-	background: radial-gradient(
-		circle,
-		rgba(63, 94, 251, 1) 0%,
-		rgba(252, 70, 107, 1) 100%
-	);
+	background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+}
+.lang-menu {
+	background-color: #fcddf2;
+}
+.lang-btn {
+	color: #242038;
+}
+.mat-form-field {
+	caret-color: black;
 }
