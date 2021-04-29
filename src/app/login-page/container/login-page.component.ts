@@ -29,7 +29,7 @@ export class LoginPageComponent implements OnInit {
 		//translate.use("fr");
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void { }
 
 	public login = new FormControl("", [
 		Validators.required,
@@ -41,15 +41,4 @@ export class LoginPageComponent implements OnInit {
 		Validators.minLength(4),
 	]);
 
-	public getErrorLogin() {
-		if (this.login.hasError("required")) {
-			return "You must enter a login";
-		}
-	}
-
-	public getErrorPassword() {
-		if (this.password.hasError("required")) {
-			return "You must enter a password";
-		}
-	}
 }

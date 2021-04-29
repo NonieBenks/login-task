@@ -4,6 +4,8 @@
 		"ENTER_SECRET": "Entrer les informations d'identification:",
 		"ENTER_LOGIN": "Tapez votre identifiant",
 		"ENTER_PASSWORD": "Tapez votre mot de passe",
-		"PORTFOLIO": "Portefeuille"
+		"PORTFOLIO": "Portefeuille",
+		"MUST_PASSWORD": "Vous devez entrer un mot de passe",
+		"MUST_LOGIN": "Vous devez entrer un identifiant"
 	}
 }

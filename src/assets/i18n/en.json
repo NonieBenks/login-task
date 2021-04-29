@@ -4,6 +4,8 @@
 		"ENTER_SECRET": "Enter top-secret credentials:",
 		"ENTER_LOGIN": "Enter your login",
 		"ENTER_PASSWORD": "Enter your password",
-		"PORTFOLIO": "Portfolio"
+		"PORTFOLIO": "Portfolio",
+		"MUST_PASSWORD": "You must enter a password",
+		"MUST_LOGIN": "You must enter a login"
 	}
 }
