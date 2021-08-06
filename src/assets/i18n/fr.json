@@ -6,6 +6,7 @@
 		"ENTER_PASSWORD": "Tapez votre mot de passe",
 		"PORTFOLIO": "Portefeuille",
 		"MUST_PASSWORD": "Vous devez entrer un mot de passe",
-		"MUST_LOGIN": "Vous devez entrer un identifiant"
+		"MUST_LOGIN": "Vous devez entrer un identifiant",
+		"WRONG_CREDENTIALS": "Identifiant ou mot de passe incorrect"
 	}
 }

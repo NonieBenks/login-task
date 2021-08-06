@@ -1,0 +1,12 @@
+{
+	"credentials": [
+		{
+			"login": "test",
+			"password": "test"
+		},
+		{
+			"login": "nata",
+			"password": "nata"
+		}
+	]
+}

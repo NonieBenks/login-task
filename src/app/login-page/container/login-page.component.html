@@ -1,31 +1,58 @@
 <div class="login">
-	<h1 class="login-title">{{ "TEST.ENTER_SECRET" | translate }}</h1>
+	<h1 class="login-title">
+		{{ "TEST.ENTER_SECRET" | translate }}
+	</h1>
+
 	<mat-card class="login-form">
-		<mat-form-field appearance="outline" class="form-field">
-			<mat-label>{{ "TEST.ENTER_LOGIN" | translate }}</mat-label>
-			<input class="input-field" matInput placeholder="pat@example.com" [formControl]="login" />
-			<mat-error *ngIf="login.hasError('required')">{{
-				"TEST.MUST_LOGIN" | translate
-			}}</mat-error>
+		<mat-form-field appearance="outline"
+			class="form-field">
+			<mat-label>
+				{{ "TEST.ENTER_LOGIN" | translate }}
+			</mat-label>
+
+			<input class="input-field" matInput
+				placeholder="pat@example.com"
+				[formControl]="login" />
+
+			<mat-error
+				*ngIf="login.hasError('required')">
+				{{ "TEST.MUST_LOGIN" | translate }}
+			</mat-error>
 		</mat-form-field>
-		<mat-form-field appearance="outline" class="form-field">
-			<mat-label>{{ "TEST.ENTER_PASSWORD" | translate }}</mat-label>
-			<input class="input-field" matInput [type]="hide ? 'password' : 'text'" [formControl]="password" />
-			<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+
+		<mat-form-field appearance="outline"
+			class="form-field">
+			<mat-label>
+				{{ "TEST.ENTER_PASSWORD" | translate }}
+			</mat-label>
+
+			<input class="input-field" matInput
+				[type]="hide ? 'password' : 'text'"
+				[formControl]="password" />
+
+			<button mat-icon-button matSuffix
+				(click)="hide = !hide"
+				[attr.aria-label]="'Hide password'"
 				[attr.aria-pressed]="hide">
-				<mat-icon>{{
-					hide ? "visibility_off" : "visibility"
-				}}</mat-icon>
+
+				<mat-icon>
+					{{ hide ? "visibility_off" : "visibility" }}
+				</mat-icon>
 			</button>
-			<mat-error *ngIf="password.hasError('required')">{{
-				"TEST.MUST_PASSWORD" | translate
-			}}</mat-error>
+
+			<mat-error
+				*ngIf="password.hasError('required')">
+				{{ "TEST.MUST_PASSWORD" | translate }}
+			</mat-error>
 		</mat-form-field>
-		<mat-label class="wrong-value">{{
-			accountService.wrongValueError
-		}}</mat-label>
-		<button mat-flat-button class="login-btn" (click)="accountService.login(login.value, password.value)"
-			routerLink="/home">
+
+		<mat-label class="wrong-value"
+			*ngIf="wrongValueError">
+			{{ "TEST.WRONG_CREDENTIALS" | translate }}
+		</mat-label>
+
+		<button mat-flat-button class="login-btn"
+			(click)="signIn(login.value, password.value)">
 			{{ "TEST.LOGIN" | translate }}
 		</button>
 	</mat-card>

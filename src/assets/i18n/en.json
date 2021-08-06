@@ -6,6 +6,7 @@
 		"ENTER_PASSWORD": "Enter your password",
 		"PORTFOLIO": "Portfolio",
 		"MUST_PASSWORD": "You must enter a password",
-		"MUST_LOGIN": "You must enter a login"
+		"MUST_LOGIN": "You must enter a login",
+		"WRONG_CREDENTIALS": "Wrong login or password"
 	}
 }
