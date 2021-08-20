@@ -1,4 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	ViewChild,
+} from "@angular/core";
 
 @Component({
 	selector: "app-home-page",
@@ -6,7 +10,14 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./home-page.component.scss"],
 })
 export class HomePageComponent implements OnInit {
+	@ViewChild("myPinch", { static: false })
+	myPinch;
+	myFullresImage = "assets/CV.jpg";
+	imgWidth = "900px";
 	constructor() {}
 
+	zoomIn() {
+		this.myPinch.zoomIn();
+	}
 	ngOnInit(): void {}
 }

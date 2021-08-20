@@ -27,7 +27,11 @@ export class ToolbarComponent implements OnInit {
 			"ru",
 			"ua",
 		]);
-		translate.use("ua");
+		translate.use(
+			this.accountService.statusStorage.getItem(
+				"language"
+			)
+		);
 	}
 
 	ngOnInit(): void {
@@ -37,10 +41,19 @@ export class ToolbarComponent implements OnInit {
 	}
 
 	public logout() {
-		this.accountService.loggedIn = false;
+		this.accountService.setAppState(false);
 		this.router.navigate(["/login"]);
 	}
+
 	public useLanguage(language: string): void {
-		this.translate.use(language);
+		this.accountService.statusStorage.setItem(
+			"language",
+			language
+		);
+		this.translate.use(
+			this.accountService.statusStorage.getItem(
+				"language"
+			)
+		);
 	}
 }

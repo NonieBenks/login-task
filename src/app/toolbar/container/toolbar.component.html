@@ -1,19 +1,19 @@
 <mat-toolbar>
-	<button *ngIf="accountService.loggedIn"
+	<button *ngIf="accountService.getAppState()"
 		mat-icon-button class="home-icon"
 		aria-label="Example icon-button with menu icon"
 		routerLink="/home">
 		<span>{{ "TEST.PORTFOLIO" | translate }}</span>
 		<span class="example-spacer"></span>
 	</button>
-	<button *ngIf="accountService.loggedIn"
+	<button *ngIf="accountService.getAppState()"
 		mat-icon-button
 		aria-label="Example icon-button with menu icon"
 		routerLink="/login">
 		<mat-icon>home</mat-icon>
 	</button>
 
-	<button *ngIf="accountService.loggedIn"
+	<button *ngIf="accountService.getAppState()"
 		mat-icon-button (click)="logout()"
 		aria-label="Example icon-button with heart icon">
 		<mat-icon>logout</mat-icon>

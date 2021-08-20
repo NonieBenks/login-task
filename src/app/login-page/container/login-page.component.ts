@@ -2,11 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import {
 	FormControl,
 	Validators,
-	FormsModule,
 } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { TranslateService } from "@ngx-translate/core";
 
 import { AccountService } from "src/app/shared/services/account.service";
 
@@ -24,21 +22,11 @@ export class LoginPageComponent
 		"/api/credentials"
 	);
 
-	public languages = [
-		{ title: "Українська", code: "ua" },
-		{ title: "English", code: "en" },
-		{ title: "Française", code: "fr" },
-		{ title: "Русский", code: "ru" },
-	];
-
 	constructor(
 		public accountService: AccountService,
 		private router: Router,
-		private http: HttpClient,
-		translate: TranslateService
-	) {
-		translate.setDefaultLang("fr");
-	}
+		private http: HttpClient
+	) {}
 
 	ngOnInit(): void {}
 
@@ -52,7 +40,9 @@ export class LoginPageComponent
 						credential[key]
 							.password === password
 					) {
-						this.accountService.loggedIn = true;
+						this.accountService.setAppState(
+							true
+						);
 						this.router.navigate([
 							"/home",
 						]);

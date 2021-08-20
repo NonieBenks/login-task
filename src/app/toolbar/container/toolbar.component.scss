@@ -3,6 +3,7 @@ mat-toolbar {
 	height: auto;
 	margin-left: 50px;
 	position: fixed;
+	z-index: 1;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	background: #fcddf2;

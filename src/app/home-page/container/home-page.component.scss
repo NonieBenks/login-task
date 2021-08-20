@@ -1,10 +1,9 @@
-.cv-container {
+div.cv-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	.portfolio {
-		max-width: 90vw;
+	.pinch-zoom {
 		margin-top: 10vh;
+		max-width: 80vw;
 	}
 }
