@@ -1,36 +1,60 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators, FormsModule } from "@angular/forms";
+import {
+	FormControl,
+	Validators,
+} from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+
 import { AccountService } from "src/app/shared/services/account.service";
-import { TranslateService } from "@ngx-translate/core";
 
 @Component({
 	selector: "app-login-page",
 	templateUrl: "./login-page.component.html",
 	styleUrls: ["./login-page.component.scss"],
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent
+	implements OnInit {
 	public hide = true;
 	public param = { value: "world" };
-
-	public languages = [
-		{ title: "Українська", code: "ua" },
-		{ title: "English", code: "en" },
-		{ title: "Française", code: "fr" },
-		{ title: "Русский", code: "ru" },
-	];
+	public wrongValueError: boolean = false;
+	credentials$ = this.http.get(
+		"/api/credentials"
+	);
 
 	constructor(
 		public accountService: AccountService,
 		private router: Router,
-		translate: TranslateService
-	) {
-		translate.setDefaultLang("fr");
-		//translate.use("fr");
-	}
+		private http: HttpClient
+	) {}
 
 	ngOnInit(): void {}
 
+	public signIn(login, password) {
+		this.credentials$.forEach(
+			(credential) => {
+				for (let key in credential) {
+					if (
+						credential[key].login ===
+							login &&
+						credential[key]
+							.password === password
+					) {
+						this.accountService.setAppState(
+							true
+						);
+						this.router.navigate([
+							"/home",
+						]);
+						return true;
+					}
+					{
+						this.wrongValueError = true;
+					}
+				}
+			}
+		);
+	}
 	public login = new FormControl("", [
 		Validators.required,
 		Validators.minLength(3),
@@ -40,16 +64,4 @@ export class LoginPageComponent implements OnInit {
 		Validators.required,
 		Validators.minLength(4),
 	]);
-
-	public getErrorLogin() {
-		if (this.login.hasError("required")) {
-			return "You must enter a login";
-		}
-	}
-
-	public getErrorPassword() {
-		if (this.password.hasError("required")) {
-			return "You must enter a password";
-		}
-	}
 }

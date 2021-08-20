@@ -1,0 +1,30 @@
+{
+	"credentials": [
+		{
+			"login": "test",
+			"password": "test"
+		},
+		{
+			"login": "nata",
+			"password": "nata"
+		}
+	],
+	"languages": [
+		{
+			"title": "Українська",
+			"code": "ua"
+		},
+		{
+			"title": "English",
+			"code": "en"
+		},
+		{
+			"title": "Française",
+			"code": "fr"
+		},
+		{
+			"title": "Русский",
+			"code": "ru"
+		}
+	]
+}

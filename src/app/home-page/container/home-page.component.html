@@ -1,3 +1,7 @@
 <div class="cv-container">
-	<img class="portfolio" src="assets/CV.jpg" alt="portfolio" />
+	<pinch-zoom class="pinch-zoom" [wheel]="false"
+		listeners="mouse and touch">
+		<img src="./assets/CV.jpg" alt="CV"
+			class="portfolio">
+	</pinch-zoom>
 </div>

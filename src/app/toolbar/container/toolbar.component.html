@@ -1,41 +1,32 @@
 <mat-toolbar>
-	<button
-		*ngIf="accountService.loggedIn"
-		mat-icon-button
-		class="home-icon"
+	<button *ngIf="accountService.getAppState()"
+		mat-icon-button class="home-icon"
 		aria-label="Example icon-button with menu icon"
-		routerLink="/home"
-	>
+		routerLink="/home">
 		<span>{{ "TEST.PORTFOLIO" | translate }}</span>
 		<span class="example-spacer"></span>
 	</button>
-	<button
-		*ngIf="accountService.loggedIn"
+	<button *ngIf="accountService.getAppState()"
 		mat-icon-button
 		aria-label="Example icon-button with menu icon"
-		routerLink="/login"
-	>
+		routerLink="/login">
 		<mat-icon>home</mat-icon>
 	</button>
 
-	<button
-		*ngIf="accountService.loggedIn"
-		mat-icon-button
-		(click)="logout()"
-		aria-label="Example icon-button with heart icon"
-	>
+	<button *ngIf="accountService.getAppState()"
+		mat-icon-button (click)="logout()"
+		aria-label="Example icon-button with heart icon">
 		<mat-icon>logout</mat-icon>
 	</button>
-	<button [matMenuTriggerFor]="menu" mat-icon-button>
+	<button [matMenuTriggerFor]="menu"
+		mat-icon-button>
 		<mat-icon>language</mat-icon>
 	</button>
 	<mat-menu #menu="matMenu" class="lang-menu">
 		<button
-			*ngFor="let languageItem of languages"
-			mat-menu-item
-			class="lang-btn"
-			(click)="useLanguage(languageItem.code)"
-		>
+			*ngFor="let languageItem of langItems"
+			mat-menu-item class="lang-btn"
+			(click)="useLanguage(languageItem.code)">
 			{{ languageItem.title | translate }}
 		</button>
 	</mat-menu>

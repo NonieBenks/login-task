@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 
 import { AccountService } from "src/app/shared/services/account.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
 	selector: "app-toolbar",
@@ -11,30 +12,48 @@ import { AccountService } from "src/app/shared/services/account.service";
 	styleUrls: ["./toolbar.component.scss"],
 })
 export class ToolbarComponent implements OnInit {
-	public languages = [
-		{ title: "Українська", code: "ua" },
-		{ title: "English", code: "en" },
-		{ title: "Française", code: "fr" },
-		{ title: "Русский", code: "ru" },
-	];
+	languages$ = this.http.get("/api/languages");
+	public langItems: any;
 
 	constructor(
 		public router: Router,
 		public accountService: AccountService,
-		public translate: TranslateService
+		public translate: TranslateService,
+		public http: HttpClient
 	) {
-		translate.addLangs(["en", "fr", "ru", "ua"]);
-		translate.setDefaultLang("fr");
-		translate.use("en");
+		translate.addLangs([
+			"en",
+			"fr",
+			"ru",
+			"ua",
+		]);
+		translate.use(
+			this.accountService.statusStorage.getItem(
+				"language"
+			)
+		);
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.languages$.subscribe((languages) => {
+			this.langItems = languages;
+		});
+	}
 
 	public logout() {
-		this.accountService.loggedIn = false;
+		this.accountService.setAppState(false);
 		this.router.navigate(["/login"]);
 	}
+
 	public useLanguage(language: string): void {
-		this.translate.use(language);
+		this.accountService.statusStorage.setItem(
+			"language",
+			language
+		);
+		this.translate.use(
+			this.accountService.statusStorage.getItem(
+				"language"
+			)
+		);
 	}
 }
